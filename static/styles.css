@@ -240,3 +240,49 @@ footer a {
     color: #58a6ff;
     text-decoration: underline;
 }
+
+.language-filter {
+    margin: 8px 0 0 0;
+    color: #e6edf3;
+    font-size: 1rem;
+}
+.language-select {
+    margin-left: 8px;
+    border-radius: 4px;
+    border: none;
+    padding: 4px 8px;
+    background: #161b22;
+    color: #e6edf3;
+}
+
+.repo-updated {
+    color: #8b949e;
+    font-size: 0.98rem;
+    margin-top: 4px;
+}
+
+.repo-history {
+    margin: 32px auto 0 auto;
+    max-width: 700px;
+    background: #23272e;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #0002;
+    padding: 18px 20px;
+    min-height: 40px;
+    color: #e6edf3;
+    font-size: 1rem;
+}
+.repo-history-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #58a6ff;
+}
+.repo-history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.repo-history-item {
+    margin-bottom: 6px;
+    color: #e6edf3;
+}

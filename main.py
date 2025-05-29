@@ -3,6 +3,7 @@ import requests
 import os
 import random
 from dotenv import load_dotenv
+import flask
 
 app = Flask(__name__, static_folder="static", static_url_path="")
 
@@ -25,10 +26,11 @@ def repo_random():
     if not GITHUB_TOKEN:
         return jsonify({"error": "GitHub token not found"}), 500
 
-    # On utilise l'API GitHub pour obtenir un repo aléatoire
-    # Astuce : on choisit un repo populaire au hasard (par exemple, page aléatoire de la recherche)
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    language = flask.request.args.get('language')
     q = "stars:>100"
+    if language and language not in ["", "Tous", "Autre"]:
+        q += f" language:{language}"
     page = random.randint(1, 100)
     url = f"https://api.github.com/search/repositories?q={q}&sort=stars&order=desc&page={page}&per_page=1"
     resp = requests.get(url, headers=headers)
@@ -40,7 +42,6 @@ def repo_random():
         return jsonify({"error": "No repositories found"}), 404
 
     repo = items[0]
-    # Les topics ne sont pas dans la réponse par défaut, il faut une requête supplémentaire :
     topics_url = repo["url"] + "/topics"
     topics_resp = requests.get(topics_url, headers={**headers, "Accept": "application/vnd.github.mercy-preview+json"})
     topics = topics_resp.json().get("names", []) if topics_resp.status_code == 200 else []
@@ -51,7 +52,8 @@ def repo_random():
         "url": repo["html_url"],
         "stars": repo["stargazers_count"],
         "language": repo["language"],
-        "topics": topics
+        "topics": topics,
+        "updated_at": repo["updated_at"]
     })
 
 if __name__ == "__main__":

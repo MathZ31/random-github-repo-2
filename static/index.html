@@ -20,22 +20,39 @@
         <main class="main-panel">
             <h1>Random Github Repo</h1>
             <div class="repo-filters">
-                <span class="topic-selected">No topic selected</span>
                 <div class="repo-count">
                     Number of repositories : <span class="repo-number" id="repo-number">1 525 238</span>
                 </div>
-                <div class="stars-range">
-                    Minimum star : <input type="number" min="0" value="0" class="star-input" id="min-star" />
-                    Maximum star : <input type="number" min="0" value="1000000" class="star-input" id="max-star" />
+                <div class="language-filter">
+                    Langage :
+                    <select id="language-select" class="language-select">
+                        <option value="">Tous</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python">Python</option>
+                        <option value="TypeScript">TypeScript</option>
+                        <option value="Java">Java</option>
+                        <option value="C++">C++</option>
+                        <option value="C#">C#</option>
+                        <option value="Go">Go</option>
+                        <option value="Rust">Rust</option>
+                        <option value="PHP">PHP</option>
+                        <option value="Ruby">Ruby</option>
+                        <option value="Swift">Swift</option>
+                        <option value="Kotlin">Kotlin</option>
+                        <option value="Dart">Dart</option>
+                        <option value="Scala">Scala</option>
+                        <option value="Autre">Autre</option>
+                    </select>
                 </div>
             </div>
             <div class="repo-card-large" id="repo">
                 <!-- Le JS remplira ici -->
                 <p>Clique sur "Inspire me !" pour découvrir un dépôt.</p>
             </div>
+            <div id="history" class="repo-history"></div>
             <button id="random-btn" class="inspire-btn">Inspire me !</button>
             <footer>
-                <p>Made by Rayane STASZEWSKI - <a href="https://github.com/" target="_blank">GitHub</a> - <a href="#">Buy me a coffee</a></p>
+                <p>Made by MathZ31 - <a href="https://github.com/MathZ31" target="_blank">GitHub</a></p>
             </footer>
         </main>
     </div>
