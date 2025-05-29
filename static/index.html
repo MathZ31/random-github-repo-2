@@ -11,18 +11,33 @@
     <meta name="theme-color" content="#ffffff" />
     <meta name="description" content="Un outil en ligne qui fournit des dépôts GitHub aléatoires selon vos filtres. Explorez et découvrez de nouveaux projets !" />
     <meta name="keywords" content="random, github, repository, repo, generator, theme, stars, code, project" />
-    <title>Random Github Repository Generator | Get inspired</title>
+    <title>Random Github Repo</title>
     <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@500;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="main-content">
-        <h1>Random Github Repository Generator</h1>
-        <p class="subtitle">Un site pour découvrir des dépôts GitHub aléatoires et s'inspirer.</p>
-        <button id="random-btn">Nouveau dépôt</button>
-        <div id="repo" class="repo-card">
-            <p>Clique sur le bouton pour obtenir un dépôt !</p>
-        </div>
+    <div class="container-app">
+        <main class="main-panel">
+            <h1>Random Github Repo</h1>
+            <div class="repo-filters">
+                <span class="topic-selected">No topic selected</span>
+                <div class="repo-count">
+                    Number of repositories : <span class="repo-number" id="repo-number">1 525 238</span>
+                </div>
+                <div class="stars-range">
+                    Minimum star : <input type="number" min="0" value="0" class="star-input" id="min-star" />
+                    Maximum star : <input type="number" min="0" value="1000000" class="star-input" id="max-star" />
+                </div>
+            </div>
+            <div class="repo-card-large" id="repo">
+                <!-- Le JS remplira ici -->
+                <p>Clique sur "Inspire me !" pour découvrir un dépôt.</p>
+            </div>
+            <button id="random-btn" class="inspire-btn">Inspire me !</button>
+            <footer>
+                <p>Made by Rayane STASZEWSKI - <a href="https://github.com/" target="_blank">GitHub</a> - <a href="#">Buy me a coffee</a></p>
+            </footer>
+        </main>
     </div>
     <script src="main.js"></script>
 </body>

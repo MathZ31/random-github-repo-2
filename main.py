@@ -40,11 +40,18 @@ def repo_random():
         return jsonify({"error": "No repositories found"}), 404
 
     repo = items[0]
+    # Les topics ne sont pas dans la réponse par défaut, il faut une requête supplémentaire :
+    topics_url = repo["url"] + "/topics"
+    topics_resp = requests.get(topics_url, headers={**headers, "Accept": "application/vnd.github.mercy-preview+json"})
+    topics = topics_resp.json().get("names", []) if topics_resp.status_code == 200 else []
+
     return jsonify({
         "name": repo["full_name"],
         "description": repo["description"],
         "url": repo["html_url"],
-        "stars": repo["stargazers_count"]
+        "stars": repo["stargazers_count"],
+        "language": repo["language"],
+        "topics": topics
     })
 
 if __name__ == "__main__":
